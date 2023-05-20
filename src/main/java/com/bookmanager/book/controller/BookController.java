@@ -1,4 +1,4 @@
-package com.bookmanager.book;
+package com.bookmanager.book.controller;
 
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Controller;
