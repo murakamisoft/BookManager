@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Book</title>
+    </head>
+    <body>
+        <h1>本の一覧です。</h1>
+    </body>
+    <div th:if="${bookList}">
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="book : ${bookList}" th:object="${book}" class="align-middle">
+          <td th:text="*{bookId}"></td>
+          <td th:text="*{bookName}"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</html>
