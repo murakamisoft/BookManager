@@ -26,19 +26,12 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">書籍名</th>
-              <th scope="col" colspan="2"></th>
             </tr>
           </thead>
           <tbody>
             <tr th:each="book : ${bookList}" th:object="${book}">
               <td scope="row" th:text="${book.bookId}"></td>
               <td scope="row" th:text="${book.bookName}"></td>
-              <td scope="row">編集</td>
-              <td>
-                <form th:action="@{/book/delete}" method="post">
-                  <button class="delete-action btn btn-outline-danger btn-sm" type="submit">削除</button>
-                </form>
-              </td>
             </tr>
           </tbody>
         </table>
