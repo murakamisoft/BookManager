@@ -1,4 +1,5 @@
 # BookManager
 本の管理をするアプリケーションです。
-# DEMO
-# Note
+# 詳細情報
+URLを参照してください。
+http://vbminigame.sakura.ne.jp/
