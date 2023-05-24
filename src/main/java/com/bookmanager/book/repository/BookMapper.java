@@ -15,5 +15,7 @@ public interface BookMapper {
     List<Book> search();
 
     void save(String bookName);
-    
+
+    void delete(Integer bookId);
+
 }

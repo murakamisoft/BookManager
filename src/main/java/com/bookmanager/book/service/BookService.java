@@ -19,6 +19,7 @@ public class BookService {
 
     /**
      * 一覧検索
+     * 
      * @return
      */
     public List<Book> search() {
@@ -27,10 +28,20 @@ public class BookService {
 
     /**
      * 追加
+     * 
      * @param bookName
      */
     public void add(String bookName) {
         bookMapper.save(bookName);
+    }
+
+    /**
+     * 削除
+     * 
+     * @param bookId
+     */
+    public void delete(Integer bookId) {
+        bookMapper.delete(bookId);
     }
 
 }

@@ -14,4 +14,9 @@
         values (#{bookName}, now(), 'test', null, null)
     </insert>
 
+    <delete id="delete">
+        DELETE FROM book
+        WHERE book_id = #{bookId}
+    </delete>
+
 </mapper>

@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -72,6 +74,18 @@ public class BookController {
         }
         // 本の追加
         bookService.add(bookRequest.getBookName());
+        return "redirect:/book";
+    }
+
+    /**
+     * 削除
+     * 
+     * @param bookId
+     * @return
+     */
+    @DeleteMapping("{bookId}")
+    public String delete(@PathVariable int bookId) {
+        bookService.delete(bookId);
         return "redirect:/book";
     }
 }
