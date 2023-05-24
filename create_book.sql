@@ -1,29 +1,29 @@
-ï»¿-- Project Name : bookmanager
--- Date/Time    : 2023/05/22 17:02:07
+-- Project Name : bookmanager
+-- Date/Time    : 2023/05/24 12:40:46
 -- Author       : nori
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
 /*
-  << æ³¨æ„ï¼ï¼ >>
-  BackupToTempTable, RestoreFromTempTableç–‘ä¼¼å‘½ä»¤ãŒä»˜åŠ ã•ã‚Œã¦ã„ã¾ã™ã€‚
-  ã“ã‚Œã«ã‚ˆã‚Šã€drop table, create table å¾Œã‚‚ãƒ‡ãƒ¼ã‚¿ãŒæ®‹ã‚Šã¾ã™ã€‚
-  ã“ã®æ©Ÿèƒ½ã¯ä¸€æ™‚çš„ã« $$TableName ã®ã‚ˆã†ãªä¸€æ™‚ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆã—ã¾ã™ã€‚
-  ã“ã®æ©Ÿèƒ½ã¯ A5:SQL Mk-2ã§ã®ã¿æœ‰åŠ¹ã§ã‚ã‚‹ã“ã¨ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚
+  << ’ˆÓII >>
+  BackupToTempTable, RestoreFromTempTable‹^—–½—ß‚ª•t‰Á‚³‚ê‚Ä‚¢‚Ü‚·B
+  ‚±‚ê‚É‚æ‚èAdrop table, create table Œã‚àƒf[ƒ^‚ªc‚è‚Ü‚·B
+  ‚±‚Ì‹@”\‚Íˆê“I‚É $$TableName ‚Ì‚æ‚¤‚Èˆêƒe[ƒuƒ‹‚ğì¬‚µ‚Ü‚·B
+  ‚±‚Ì‹@”\‚Í A5:SQL Mk-2‚Å‚Ì‚İ—LŒø‚Å‚ ‚é‚±‚Æ‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B
 */
 
--- æœ¬
+-- –{
 --* BackupToTempTable
 drop table book cascade;
 
 --* RestoreFromTempTable
 create table book (
-  book_id INT not null AUTO_INCREMENT comment 'æœ¬ID'
-  , book_name VARCHAR(512) comment 'æœ¬åç§°'
-  , created_date DATE comment 'ä½œæˆæ—¥'
-  , created_user VARCHAR(256) comment 'ä½œæˆè€…'
-  , updated_date DATE comment 'æ›´æ–°æ—¥'
-  , updated_user VARCHAR(256) comment 'æ›´æ–°è€…'
+  book_id INT AUTO_INCREMENT not null comment '–{ID'
+  , book_name VARCHAR(512) comment '–{–¼Ì'
+  , created_date DATETIME comment 'ì¬“ú'
+  , created_user VARCHAR(256) comment 'ì¬Ò'
+  , updated_date DATETIME comment 'XV“ú'
+  , updated_user VARCHAR(256) comment 'XVÒ'
   , constraint book_PKC primary key (book_id)
-) comment 'æœ¬' ;
+) comment '–{' ;
 
