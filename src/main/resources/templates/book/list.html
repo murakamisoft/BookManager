@@ -31,13 +31,18 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">書籍名</th>
-            <th scope="col" colspan="1"></th>
+            <th scope="col" colspan="2"></th>
           </tr>
         </thead>
         <tbody>
           <tr th:each="book : ${bookList}" th:object="${book}">
             <td scope="row" th:text="${book.bookId}"></td>
             <td scope="row" th:text="${book.bookName}"></td>
+            <td scope="row">
+              <form th:action="@{/book/edit/{bookId}(bookId=*{bookId})}" th:method="get">
+                <button class="btn btn-primary" type="submit">編集</button>
+              </form>
+            </td>
             <td scope="row">
               <form th:action="@{/book/{bookId}(bookId=*{bookId})}" th:method="delete">
                 <button class="btn btn-danger" type="submit">削除</button>

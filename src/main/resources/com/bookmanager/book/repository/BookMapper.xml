@@ -9,6 +9,11 @@
         order by book_id
     </select>
 
+    <select id="findByBookId" resultType="com.bookmanager.book.entity.Book">
+        SELECT * FROM book
+        WHERE book_id = #{bookId}
+    </select>
+
     <insert id="save">
         insert into Book (book_name, created_date, created_user, updated_date, updated_user)
         values (#{bookName}, now(), 'test', null, null)
@@ -18,5 +23,14 @@
         DELETE FROM book
         WHERE book_id = #{bookId}
     </delete>
+
+    <update id="update">
+        UPDATE book
+        SET
+        book_name = #{bookName}
+        , updated_date = now()
+        , updated_user = 'test'
+        WHERE book_id = #{bookId}
+    </update>
 
 </mapper>

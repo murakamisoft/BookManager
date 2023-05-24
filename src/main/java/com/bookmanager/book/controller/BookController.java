@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bookmanager.book.dto.BookRequest;
 import com.bookmanager.book.entity.Book;
 import com.bookmanager.book.service.BookService;
+
+import jakarta.validation.Valid;
 
 /**
  * 本のコントローラ
@@ -84,8 +87,33 @@ public class BookController {
      * @return
      */
     @DeleteMapping("{bookId}")
-    public String delete(@PathVariable int bookId) {
+    public String delete(@PathVariable Integer bookId) {
         bookService.delete(bookId);
+        return "redirect:/book";
+    }
+
+    /**
+     * 編集画面表示
+     * 
+     * @param model
+     * @return
+     */
+    @GetMapping("/edit/{bookId}")
+    public String displayEdit(@PathVariable Integer bookId, Model model) {
+        Book book = bookService.findByBookId(bookId);
+        model.addAttribute("bookRequest", book);
+        return "book/edit";
+    }
+
+    /**
+     * 編集画面の更新処理
+     */
+    @PutMapping("/edit")
+    public String edit(@ModelAttribute @Valid BookRequest bookRequest, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "book/edit";
+        }
+        bookService.update(bookRequest.getBookId(), bookRequest.getBookName());
         return "redirect:/book";
     }
 }

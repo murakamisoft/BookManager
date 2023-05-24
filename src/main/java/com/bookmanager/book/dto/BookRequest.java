@@ -10,6 +10,8 @@ import lombok.Data;
 @Data
 public class BookRequest {
 
+    private Integer bookId;
+    
     /**
      * 名前
      */

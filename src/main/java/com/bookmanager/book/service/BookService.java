@@ -44,4 +44,24 @@ public class BookService {
         bookMapper.delete(bookId);
     }
 
+    /**
+     * １件取得
+     * 
+     * @param bookId
+     * @return
+     */
+    public Book findByBookId(int bookId) {
+        return bookMapper.findByBookId(bookId);
+    }
+
+    /**
+     * 更新
+     * 
+     * @param bookId
+     * @param bookName
+     */
+    public void update(Integer bookId, String bookName) {
+        bookMapper.update(bookId, bookName);
+    }
+
 }
