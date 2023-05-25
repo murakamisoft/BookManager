@@ -1,13 +1,11 @@
-package com.bookmanager.book;
+package com.bookmanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EnableAutoConfiguration 
-@ComponentScan("com.bookmanager.book")
+@EnableAutoConfiguration
 public class BookmanagerApplication {
 
 	public static void main(String[] args) {
