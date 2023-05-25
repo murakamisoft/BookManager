@@ -20,6 +20,10 @@
     </div>
     <form th:action="@{/book}" th:object="${bookRequest}" th:method="post">
       <div class="form-group">
+        <label>ID：</label>
+        <input type="text" th:field="*{bookId}" class="form-control">
+      </div>
+      <div class="form-group">
         <label>名前：<span class="text-danger">※</span></label>
         <input type="text" th:field="*{bookName}" class="form-control">
       </div>

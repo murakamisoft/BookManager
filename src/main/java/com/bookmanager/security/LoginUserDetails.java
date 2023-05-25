@@ -30,6 +30,10 @@ public class LoginUserDetails implements UserDetails {
                 .toList();
     }
 
+    public Integer getUserId() {
+        return user.getUserId();
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;

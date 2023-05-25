@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 public class BookRequest {
 
+    @NotEmpty(message = "本のIDを入力してください")
     private Integer bookId;
     
     /**

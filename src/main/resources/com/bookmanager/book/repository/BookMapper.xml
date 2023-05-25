@@ -6,6 +6,7 @@
 
     <select id="search" resultType="com.bookmanager.book.entity.Book">
         SELECT * FROM book
+        WHERE user_id = #{userId}
         order by book_id
     </select>
 
@@ -14,14 +15,21 @@
         WHERE book_id = #{bookId}
     </select>
 
+    <select id="findByUserIdAndBookId" resultType="com.bookmanager.book.entity.Book">
+        SELECT * FROM book
+        WHERE book_id = #{bookId}
+        AND user_id = #{userId}
+    </select>
+
     <insert id="save">
-        insert into Book (book_name, created_date, created_user, updated_date, updated_user)
-        values (#{bookName}, now(), 'test', null, null)
+        insert into Book (user_id, book_id, book_name, created_date, created_user, updated_date, updated_user)
+        values (#{userId}, #{bookId}, #{bookName}, now(), 'test', null, null)
     </insert>
 
     <delete id="delete">
         DELETE FROM book
         WHERE book_id = #{bookId}
+        AND user_id = #{userId}
     </delete>
 
     <update id="update">
@@ -31,6 +39,7 @@
         , updated_date = now()
         , updated_user = 'test'
         WHERE book_id = #{bookId}
+        AND user_id = #{userId}
     </update>
 
 </mapper>

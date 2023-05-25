@@ -13,14 +13,16 @@ import com.bookmanager.book.entity.Book;
 @Mapper
 public interface BookMapper {
 
-    List<Book> search();
+    List<Book> search(Integer userId);
 
     Book findByBookId(Integer bookId);
 
-    void save(String bookName);
+    void save(@Param("userId") Integer userId, @Param("bookId") Integer bookId, @Param("bookName") String bookName);
 
-    void delete(Integer bookId);
+    void delete(@Param("userId") Integer userId, @Param("bookId") Integer bookId);
 
-    void update(@Param("bookId") Integer bookId, @Param("bookName") String bookName);
+    void update(@Param("userId") Integer userId, @Param("bookId") Integer bookId, @Param("bookName") String bookName);
+
+    Book findByUserIdAndBookId(@Param("userId") Integer userId, @Param("bookId") Integer bookId);
 
 }

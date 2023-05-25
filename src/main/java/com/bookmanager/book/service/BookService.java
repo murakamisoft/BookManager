@@ -1,6 +1,7 @@
 package com.bookmanager.book.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,46 +23,57 @@ public class BookService {
      * 
      * @return
      */
-    public List<Book> search() {
-        return bookMapper.search();
+    public List<Book> search(Integer userId) {
+        return bookMapper.search(userId);
     }
 
     /**
      * 追加
      * 
+     * @param userId
+     * @param bookId
+     * 
      * @param bookName
      */
-    public void add(String bookName) {
-        bookMapper.save(bookName);
+    public void add(Integer userId, Integer bookId, String bookName) {
+        bookMapper.save(userId, bookId, bookName);
     }
 
     /**
      * 削除
      * 
+     * @param userId
      * @param bookId
      */
-    public void delete(Integer bookId) {
-        bookMapper.delete(bookId);
+    public void delete(Integer userId, Integer bookId) {
+        bookMapper.delete(userId, bookId);
     }
 
     /**
      * １件取得
      * 
      * @param bookId
+     * @param bookId2
      * @return
      */
-    public Book findByBookId(int bookId) {
-        return bookMapper.findByBookId(bookId);
+    public Book findByBookId(Integer userId, Integer bookId) {
+        return bookMapper.findByUserIdAndBookId(userId, bookId);
     }
 
     /**
      * 更新
      * 
+     * @param userId
      * @param bookId
      * @param bookName
      */
-    public void update(Integer bookId, String bookName) {
-        bookMapper.update(bookId, bookName);
+    public void update(Integer userId, Integer bookId, String bookName) {
+        bookMapper.update(userId, bookId, bookName);
+    }
+
+    public boolean existBookId(Integer userId, Integer bookId) {
+        Book book = bookMapper.findByUserIdAndBookId(userId, bookId);
+        return !Objects.isNull(book);
     }
 
 }

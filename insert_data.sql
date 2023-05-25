@@ -1,12 +1,4 @@
-﻿delete from bookmanager.book;
-
-insert into bookmanager.book(book_name,created_date,created_user,updated_date,updated_user) values 
-    ('abcの本', now(), 'test', now(),'test')
-  , ('プログラミング本', now(),'test', now(),'test')
-  , ('広辞苑', now(),'test', now(),'test')
-  , ('おもしろい小説', now(),'test', now(),'test');
-
-delete from user;
+﻿delete from user;
 
 insert 
 into bookmanager.`user`( 
@@ -26,3 +18,10 @@ values (
     , 'useradmin'
 );
 
+delete from bookmanager.book;
+
+insert into bookmanager.book(user_id, book_id, book_name,created_date,created_user,updated_date,updated_user) values 
+    (1, 10,'abcの本', now(), 'test', now(),'test')
+  , (1, 20,'プログラミング本', now(),'test', now(),'test')
+  , (1, 30,'広辞苑', now(),'test', now(),'test')
+  , (1, 40,'おもしろい小説', now(),'test', now(),'test');
