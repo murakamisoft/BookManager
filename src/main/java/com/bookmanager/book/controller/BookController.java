@@ -85,12 +85,12 @@ public class BookController {
         }
         if (bookService.existBookId(user.getUserId(), bookRequest.getBookId())) {
             List<String> errorList = new ArrayList<String>();
-            errorList.add("book id is exist.");
+            errorList.add("bookIdが既に存在します。");
             model.addAttribute("validationError", errorList);
             return "book/add";
         }
         // 本の追加
-        bookService.add(user.getUserId(), bookRequest.getBookId(), bookRequest.getBookName());
+        bookService.add(user.getUserId(), bookRequest.getBookId(), bookRequest.getBookName(), user.getUsername());
         return "redirect:/book";
     }
 
@@ -125,14 +125,17 @@ public class BookController {
      */
     @PutMapping("/edit")
     public String edit(@AuthenticationPrincipal LoginUserDetails user, @ModelAttribute @Valid BookRequest bookRequest,
-            BindingResult bindingResult) {
+            BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "book/edit";
+            // 入力チェックエラーの場合
+            List<String> errorList = new ArrayList<String>();
+            for (ObjectError error : bindingResult.getAllErrors()) {
+                errorList.add(error.getDefaultMessage());
+            }
+            model.addAttribute("validationError", errorList);
+            return "book/add";
         }
-        if (bookService.existBookId(user.getUserId(), bookRequest.getBookId())) {
-            return "book/edit";
-        }
-        bookService.update(user.getUserId(), bookRequest.getBookId(), bookRequest.getBookName());
+        bookService.update(user.getUserId(), bookRequest.getBookId(), bookRequest.getBookName(), user.getUsername());
         return "redirect:/book";
     }
 }

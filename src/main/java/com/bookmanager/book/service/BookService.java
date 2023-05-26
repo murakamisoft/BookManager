@@ -32,11 +32,11 @@ public class BookService {
      * 
      * @param userId
      * @param bookId
-     * 
      * @param bookName
+     * @param userName
      */
-    public void add(Integer userId, Integer bookId, String bookName) {
-        bookMapper.save(userId, bookId, bookName);
+    public void add(Integer userId, Integer bookId, String bookName, String userName) {
+        bookMapper.save(userId, bookId, bookName, userName);
     }
 
     /**
@@ -66,9 +66,10 @@ public class BookService {
      * @param userId
      * @param bookId
      * @param bookName
+     * @param userName
      */
-    public void update(Integer userId, Integer bookId, String bookName) {
-        bookMapper.update(userId, bookId, bookName);
+    public void update(Integer userId, Integer bookId, String bookName, String userName) {
+        bookMapper.update(userId, bookId, bookName, userName);
     }
 
     public boolean existBookId(Integer userId, Integer bookId) {

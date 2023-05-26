@@ -48,7 +48,7 @@ LName=本
 Comment=
 TableOption=
 Page=MAIN
-Left=1300
+Left=1000
 Top=600
 Field="ユーザID","user_id","INT","NOT NULL",0,"","",$FFFFFFFF,""
 Field="本ID","book_id","INT","NOT NULL",1,"","",$FFFFFFFF,""
@@ -61,7 +61,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20230525190713
-Position="MAIN",1300,600,409,358
+Position="MAIN",1000,600,409,358
 ZOrder=1
 
 [Entity]

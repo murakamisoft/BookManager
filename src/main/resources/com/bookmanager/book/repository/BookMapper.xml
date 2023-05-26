@@ -8,6 +8,7 @@
         SELECT * FROM book
         WHERE user_id = #{userId}
         order by book_id
+
     </select>
 
     <select id="findByBookId" resultType="com.bookmanager.book.entity.Book">
@@ -23,7 +24,7 @@
 
     <insert id="save">
         insert into Book (user_id, book_id, book_name, created_date, created_user, updated_date, updated_user)
-        values (#{userId}, #{bookId}, #{bookName}, now(), 'test', null, null)
+        values (#{userId}, #{bookId}, #{bookName}, now(), #{userName}, now(), #{userName})
     </insert>
 
     <delete id="delete">
@@ -37,7 +38,7 @@
         SET
         book_name = #{bookName}
         , updated_date = now()
-        , updated_user = 'test'
+        , updated_user = #{userName}
         WHERE book_id = #{bookId}
         AND user_id = #{userId}
     </update>
