@@ -19,8 +19,7 @@ values (
     , now()
     , 'test'
 ) 
-, 
-values ( 
+, ( 
     'user'
     , '$2a$10$SJTWvNl16fCU7DaXtWC0DeN/A8IOakpCkWWNZ/FKRV2CHvWElQwMS'
     , now()

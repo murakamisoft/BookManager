@@ -1,5 +1,5 @@
 -- Project Name : bookmanager
--- Date/Time    : 2023/05/25 19:07:18
+-- Date/Time    : 2023/05/26 12:02:56
 -- Author       : nori
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -7,26 +7,26 @@
 drop table user cascade;
 
 create table user (
-  user_id INT AUTO_INCREMENT not null comment 'ƒ†[ƒUID'
-  , user_name VARCHAR(256) comment 'ƒ†[ƒU–¼'
-  , password VARCHAR(256) comment 'ƒpƒXƒ[ƒh'
-  , created_date DATETIME comment 'ì¬“ú'
-  , created_user VARCHAR(256) comment 'ì¬Ò'
-  , updated_date DATETIME comment 'XV“ú'
-  , updated_user VARCHAR(256) comment 'XVÒ'
+  user_id INT AUTO_INCREMENT not null comment 'ãƒ¦ãƒ¼ã‚¶ID'
+  , user_name VARCHAR(256) comment 'ãƒ¦ãƒ¼ã‚¶å'
+  , password VARCHAR(256) comment 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰'
+  , created_date DATETIME comment 'ä½œæˆæ—¥'
+  , created_user VARCHAR(256) comment 'ä½œæˆè€…'
+  , updated_date DATETIME comment 'æ›´æ–°æ—¥'
+  , updated_user VARCHAR(256) comment 'æ›´æ–°è€…'
   , constraint user_PKC primary key (user_id)
-) comment 'ƒ†[ƒU' ;
+) comment 'ãƒ¦ãƒ¼ã‚¶' ;
 
 drop table book cascade;
 
 create table book (
-  user_id INT not null comment 'ƒ†[ƒUID'
-  , book_id INT not null comment '–{ID'
-  , book_name VARCHAR(512) comment '–{–¼Ì'
-  , created_date DATETIME comment 'ì¬“ú'
-  , created_user VARCHAR(256) comment 'ì¬Ò'
-  , updated_date DATETIME comment 'XV“ú'
-  , updated_user VARCHAR(256) comment 'XVÒ'
+  user_id INT not null comment 'ãƒ¦ãƒ¼ã‚¶ID'
+  , book_id INT not null comment 'æœ¬ID'
+  , book_name VARCHAR(512) comment 'æœ¬åç§°'
+  , created_date DATETIME comment 'ä½œæˆæ—¥'
+  , created_user VARCHAR(256) comment 'ä½œæˆè€…'
+  , updated_date DATETIME comment 'æ›´æ–°æ—¥'
+  , updated_user VARCHAR(256) comment 'æ›´æ–°è€…'
   , constraint book_PKC primary key (user_id,book_id)
-) comment '–{' ;
+) comment 'æœ¬' ;
 
