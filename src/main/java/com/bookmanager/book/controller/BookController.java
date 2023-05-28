@@ -44,8 +44,6 @@ public class BookController {
     @GetMapping
     public String list(@AuthenticationPrincipal LoginUserDetails user, Model model) {
 
-        model.addAttribute("userName", user.getUsername());
-
         List<Book> bookList = bookService.search(user.getUserId());
         model.addAttribute("bookList", bookList);
         return "book/list";
