@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="utf-8">
@@ -13,7 +14,31 @@
 </head>
 
 <body>
-  <div class="container">
+
+  <header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/book">BookManager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a sec:authentication="principal.username" class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+          </ul>
+          <form class="d-flex" th:action="@{/logout}" method="post">
+            <button class="btn btn-primary" type="submit">ログアウト</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container" style="margin-top: 70px;">
     <h1>本の編集</h1>
     <div th:if="${validationError}" th:each="error : ${validationError}">
       <label class="text-danger" th:text="${error}"></label>
