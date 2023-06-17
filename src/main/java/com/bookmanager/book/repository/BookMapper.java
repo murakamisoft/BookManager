@@ -17,14 +17,14 @@ public interface BookMapper {
 
     Book findByBookId(Integer bookId);
 
-    void save(@Param("userId") Integer userId,
+    Integer save(@Param("userId") Integer userId,
             @Param("bookId") Integer bookId,
             @Param("bookName") String bookName,
             @Param("userName") String userName);
 
-    void delete(@Param("userId") Integer userId, @Param("bookId") Integer bookId);
+    Integer delete(@Param("userId") Integer userId, @Param("bookId") Integer bookId);
 
-    void update(@Param("userId") Integer userId,
+    Integer update(@Param("userId") Integer userId,
             @Param("bookId") Integer bookId,
             @Param("bookName") String bookName,
             @Param("userName") String userName);

@@ -35,8 +35,8 @@ public class BookService {
      * @param bookName
      * @param userName
      */
-    public void add(Integer userId, Integer bookId, String bookName, String userName) {
-        bookMapper.save(userId, bookId, bookName, userName);
+    public Integer add(Integer userId, Integer bookId, String bookName, String userName) {
+        return bookMapper.save(userId, bookId, bookName, userName);
     }
 
     /**

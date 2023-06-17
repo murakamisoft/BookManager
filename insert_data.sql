@@ -26,6 +26,14 @@ values (
     , 'test'
     , now()
     , 'test'
+)
+, ( 
+    'api_user'
+    , '$2a$10$SJTWvNl16fCU7DaXtWC0DeN/A8IOakpCkWWNZ/FKRV2CHvWElQwMS'
+    , now()
+    , 'test'
+    , now()
+    , 'test'
 ); 
 
 delete 
