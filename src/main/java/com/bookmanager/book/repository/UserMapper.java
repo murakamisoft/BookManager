@@ -20,7 +20,7 @@ public interface UserMapper {
     User findUserId(Integer userId);
 
     @Insert({
-        "insert into user(user_id, user_name, password, created_date, created_user, updated_date, updated_user) value(#{userId}, #{userName}, #{password}, now(), 'test', now(), 'test')"
+        "insert into user(user_id, user_name, password, created_date, created_user, updated_date, updated_user) values(#{userId}, #{userName}, #{password}, now(), 'test', now(), 'test')"
     })
     void save(Integer userId, String userName, String password);
 

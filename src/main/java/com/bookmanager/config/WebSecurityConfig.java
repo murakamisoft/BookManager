@@ -29,7 +29,7 @@ public class WebSecurityConfig {
 
 		http
 				.authorizeHttpRequests((requests) -> requests
-						.requestMatchers("/api/**")
+						.requestMatchers("/api/**", "/user/**")
 						.permitAll()
 						.anyRequest().authenticated());
 
