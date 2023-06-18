@@ -32,7 +32,9 @@ public class UserController {
      */
     @GetMapping("/add")
     public String displayAdd(Model model) {
-        model.addAttribute("userRequest", new UserRequest());
+        UserRequest userRequest=new UserRequest();
+        userRequest.setUserId(1);
+        model.addAttribute("userRequest", userRequest);
         return "user/add";
     }
 
@@ -72,7 +74,7 @@ public class UserController {
                 userRequest.getUserName(),
                 userRequest.getPassword(),
                 userRequest.getPasswordCheck());
-        return "redirect:/user";
+        return "redirect:/login";
     }
 
 }

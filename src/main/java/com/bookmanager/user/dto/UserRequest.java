@@ -21,7 +21,7 @@ public class UserRequest {
     @Size(max = 255, message = "パスワードは255文字以内で入力してください")
     private String password;
 
-    @NotEmpty(message = "パスワードを入力してください")
-    @Size(max = 255, message = "パスワードは255文字以内で入力してください")
+    @NotEmpty(message = "パスワード再入力を入力してください")
+    @Size(max = 255, message = "パスワード再入力は255文字以内で入力してください")
     private String passwordCheck;
 }
